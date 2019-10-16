@@ -29,10 +29,10 @@ func main() {
 		out, _ := json.MarshalIndent(res, "", "  ")
 
 		// Normally this would be application/json, but we don't want to prompt downloads
-		w.Header().Set("Content-Type", "text/plain")
-
+		w.Header().Set("Content-Type", "application/json")
+		enableCors(&w)
 		io.WriteString(w, string(out))
-
+		
 		fmt.Println("Hello world - new commit alert!")
 	})
 	http.ListenAndServe(":5000", nil)
@@ -50,4 +50,8 @@ func fib() func() int {
 		a, b = b, a+b
 		return a
 	}
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
