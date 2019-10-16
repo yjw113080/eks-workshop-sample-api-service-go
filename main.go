@@ -35,7 +35,7 @@ func main() {
 
 		fmt.Println("Hello world - new commit alert!")
 	})
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":5000", nil)
 }
 
 type response struct {
