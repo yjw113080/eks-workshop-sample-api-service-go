@@ -19,8 +19,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 2
-      maxSurge: 2
+      maxUnavailable: 0
+      maxSurge: 6
   selector:
     matchLabels:
       app: hello-k8s
